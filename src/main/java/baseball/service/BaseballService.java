@@ -5,8 +5,10 @@ import baseball.domain.Result;
 import baseball.domain.User;
 import baseball.exception.InputException;
 
+import java.util.List;
+
 public class BaseballService {
-    private final Computer computer;
+    private Computer computer;
     private final User user;
     private final Result result;
 
@@ -29,10 +31,18 @@ public class BaseballService {
     }
 
     public boolean retry(String input) {
-        return validateInput(input) == 1;
+        if (validateRetrySelection(input) != 1)
+            return false;
+
+        this.computer = new Computer();
+        return true;
     }
 
-    private int validateInput(String input) {
+    public List<Integer> getResult() {
+        return List.of(result.getStrikes(), result.getBalls());
+    }
+
+    private int validateRetrySelection(String input) {
         if (input.length() != 1)
             throw new IllegalArgumentException(InputException.INVALID_NUMBER_LENGTH.getMessage());
 

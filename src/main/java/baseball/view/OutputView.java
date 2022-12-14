@@ -11,8 +11,10 @@ public class OutputView {
             result.append(balls + "볼 ");
         if (strikes > 0)
             result.append(strikes + "스트라이크");
+        if (result.length() == 0)
+            System.out.print("낫싱");
 
-        System.out.println(result.toString());
+        System.out.println(result);
     }
 
     public void printWin() {

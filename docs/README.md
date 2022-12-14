@@ -8,7 +8,7 @@
 - [x] 게임 재시작 여부 입력 받기
   - 잘못된 값 입력 예외 처리
 - [x] InputView, OutputView 구현하기
-- [ ] Controller 구현하기
+- [x] Controller 구현하기
 
 ## 프로그래밍 요구 사항
 
