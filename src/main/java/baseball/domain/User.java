@@ -13,13 +13,21 @@ public class User {
         return input;
     }
 
+    /**
+     * 도메인 로직
+     */
+
     public void input(String input) {
+        this.input = validate(input);
+    }
+
+    private List<Integer> validate(String input) {
         List<Integer> result = validateNumeric(input);
         validateRange(result);
         validateNumberLength(result);
         validateDuplicated(result);
 
-        this.input = result;
+        return result;
     }
 
     private List<Integer> validateNumeric(String input) {
