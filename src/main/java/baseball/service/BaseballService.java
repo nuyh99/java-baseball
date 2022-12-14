@@ -3,6 +3,7 @@ package baseball.service;
 import baseball.domain.Computer;
 import baseball.domain.Result;
 import baseball.domain.User;
+import baseball.exception.InputException;
 
 public class BaseballService {
     private final Computer computer;
@@ -25,5 +26,28 @@ public class BaseballService {
 
     public boolean isGameOver() {
         return result.isGameOver();
+    }
+
+    public boolean retry(String input) {
+        return validateInput(input) == 1;
+    }
+
+    private int validateInput(String input) {
+        if (input.length() != 1)
+            throw new IllegalArgumentException(InputException.INVALID_NUMBER_LENGTH.getMessage());
+
+        int selection = validateNumericValue(input);
+        if (selection != 1 && selection != 2)
+            throw new IllegalArgumentException(InputException.INVALID_RETRY_SELECTION.getMessage());
+
+        return selection;
+    }
+
+    private int validateNumericValue(String input) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException numberFormatException) {
+            throw new IllegalArgumentException(InputException.NOT_A_NUMBER.getMessage());
+        }
     }
 }
