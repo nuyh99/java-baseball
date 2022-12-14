@@ -22,4 +22,8 @@ public class BaseballService {
     public void match() {
         result.match(computer.getAnswer(), user.getInput());
     }
+
+    public boolean isGameOver() {
+        return result.isGameOver();
+    }
 }

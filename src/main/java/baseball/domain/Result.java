@@ -22,6 +22,10 @@ public class Result {
         balls = matchAnys(computer, user) - strikes;
     }
 
+    public boolean isGameOver() {
+        return strikes == 3;
+    }
+
     private int matchStrikes(List<Integer> computer, List<Integer> user) {
         int result = 0;
 
