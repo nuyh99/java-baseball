@@ -43,4 +43,31 @@ class ResultTest {
         assertThat(result.getStrikes()).isEqualTo(1);
         assertThat(result.getBalls()).isEqualTo(1);
     }
+
+    @Test
+    void 게임_종료됨() throws Exception {
+        //given
+        Result result = new Result();
+        List<Integer> answer = List.of(1, 2, 3);
+
+        //when
+        result.match(answer, answer);
+
+        //then
+        assertThat(result.isGameOver()).isTrue();
+    }
+
+    @Test
+    void 게임_종료되지_않음() throws Exception {
+        //given
+        Result result = new Result();
+        List<Integer> answer = List.of(1, 2, 3);
+        List<Integer> notAnswer = List.of(1, 2, 5);
+
+        //when
+        result.match(answer, notAnswer);
+
+        //then
+        assertThat(result.isGameOver()).isFalse();
+    }
 }
