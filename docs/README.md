@@ -1,0 +1,19 @@
+## 기능 구현 목록
+
+- [x] 컴퓨터의 숫자 생성하기
+- [x] 유저에게 숫자 입력 받기
+  - 잘못된 값 입력 예외 처리
+- [x] 유저의 값 정답 판별하기
+- [x] 게임 종료 판단하기
+- [x] 게임 재시작 여부 입력 받기
+  - 잘못된 값 입력 예외 처리
+- [x] InputView, OutputView 구현하기
+- [x] Controller 구현하기
+
+## 프로그래밍 요구 사항
+
+* 잘못된 값을 입력할 경우 IllegalArgumentException 후 종료
+* 들여쓰기 2까지
+* Random 값 추출은 Randoms.pickNumberInRange()
+* 사용자가 입력하는 값은 Console.readLine()
+* 1~9까지 서로 다른 숫자
