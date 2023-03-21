@@ -3,6 +3,8 @@ package domain;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class Computer{
     public static final int START_INCLUSIVE = 1;
@@ -21,12 +23,34 @@ public class Computer{
                 computer.add(randomNumber);
             }
         }
-        number = new Number(computer);
+        this.number = new Number(computer);
+    }
+    public List<Hint> getHint(List<Integer> usernumber){
+        List<Hint> hint = new ArrayList<>();
+
+        for(int i = 0;i<NUMBER_SIZE;i++){
+            hint.add(getHintByIndex(i,usernumber.get(i)));
+        }
+
+        return hint;
+    }
+
+    private Hint getHintByIndex(int index,int number){
+        int result = getnumber().indexOf(number);
+        if (result == index){
+            return Hint.STRIKE;
+        }
+        if (result == -1){
+            return Hint.NOTHING;
+        }
+        return Hint.BALL;
     }
 
     public List<Integer> getnumber() {
         return number.number;
     }
-
+    public void setnumber(Number testNumber) {
+        this.number = testNumber;
+    }
 }
 
