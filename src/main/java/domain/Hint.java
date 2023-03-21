@@ -7,7 +7,8 @@ import java.util.stream.Collectors;
 public enum Hint {
     STRIKE("스트라이크"),
     BALL("볼"),
-    NOTHING("낫싱"),;
+    NOTHING("낫싱"),
+    ;
 
     private final String inKorean;
 
@@ -16,7 +17,7 @@ public enum Hint {
         this.inKorean = inKorean;
     }
 
-    public String getInKorean(){
+    public String getInKorean() {
         return inKorean;
     }
 

@@ -1,6 +1,9 @@
 package controller;
 
 import static domain.Computer.NUMBER_SIZE;
+import static domain.User.GAMEEND;
+import static domain.User.GAMESTART;
+import static javax.sound.midi.ShortMessage.START;
 
 import domain.Computer;
 import domain.Hint;
@@ -21,24 +24,36 @@ public class BaseballController {
 
     public void run() {
         gameset();
-        boolean gameFlag = true;
-        while (gameFlag) {
+
+        while (user.getStatus() == GAMESTART) {
             user = provideUserNumber(InputView.readUserNumber());
             List<Hint> result = computer.getHint(user.getNumber());
             Outputview.printHintList(result);
 
-            if(isDone(user.getNumber(), result)){
-            };
+            if (isDone(result)) {
+                Outputview.printSuccessMessage();
+                user.setStatus(InputView.readToReStart());
+                ReStart();
+            }
+
         }
 
+        Outputview.printEndMessage();
 
     }
 
     private void gameset() {
-        computer.createNumber();
+        user = new User();
+        computer = new Computer();
     }
 
-    private boolean isDone(List<Integer> usernumber, List<Hint> result) {
+    private void ReStart() {
+        if (user.getStatus() == GAMESTART) {
+            gameset();
+        }
+    }
+
+    private boolean isDone(List<Hint> result) {
         if (Collections.frequency(result, Hint.STRIKE) == NUMBER_SIZE) {
             return true;
         }

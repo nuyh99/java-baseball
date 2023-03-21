@@ -39,13 +39,14 @@ public class ComputerTest {
         //given
         Computer computer = new Computer();
         Number number = new Number(Arrays.asList(1,2,3));
-        ArrayList<Hint> hintlist = new ArrayList<>(Arrays.asList(Hint.STRIKE,Hint.BALL,Hint.BALL));
+        ArrayList<Hint> hintlist = new ArrayList<>(Arrays.asList(Hint.STRIKE,Hint.NOTHING,Hint.BALL));
 
         //when
-        computer.setnumber(number);
+        computer.setNumber(number);
 
         //then
-        assertThat(computer.getHint(Arrays.asList(1,3,2))).isEqualTo(hintlist);
+        assertThat(computer.getHint(Arrays.asList(1,9,2))).isEqualTo(hintlist);
+        Outputview.printHintList(hintlist);
     }
 
 

@@ -6,16 +6,18 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class Computer{
+public class Computer {
+
     public static final int START_INCLUSIVE = 1;
     public static final int END_INCLUSIVE = 9;
     public static final int NUMBER_SIZE = 3;
     private Number number;
 
-    public Computer(){
+    public Computer() {
+        this.number = new Number(createNumber());
     }
 
-    public void createNumber(){
+    public List<Integer> createNumber() {
         List<Integer> computer = new ArrayList<>();
         while (computer.size() < NUMBER_SIZE) {
             int randomNumber = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE);
@@ -23,24 +25,25 @@ public class Computer{
                 computer.add(randomNumber);
             }
         }
-        this.number = new Number(computer);
+        return computer;
     }
-    public List<Hint> getHint(List<Integer> usernumber){
+
+    public List<Hint> getHint(List<Integer> usernumber) {
         List<Hint> hint = new ArrayList<>();
 
-        for(int i = 0;i<NUMBER_SIZE;i++){
-            hint.add(getHintByIndex(i,usernumber.get(i)));
+        for (int i = 0; i < NUMBER_SIZE; i++) {
+            hint.add(getHintByIndex(i, usernumber.get(i)));
         }
 
         return hint;
     }
 
-    private Hint getHintByIndex(int index,int number){
+    private Hint getHintByIndex(int index, int number) {
         int result = getnumber().indexOf(number);
-        if (result == index){
+        if (result == index) {
             return Hint.STRIKE;
         }
-        if (result == -1){
+        if (result == -1) {
             return Hint.NOTHING;
         }
         return Hint.BALL;
@@ -49,7 +52,12 @@ public class Computer{
     public List<Integer> getnumber() {
         return number.number;
     }
-    public void setnumber(Number testNumber) {
+
+    public void setnumber() {
+        this.number.setnumber(createNumber());
+    }
+
+    public void setNumber(Number testNumber) {
         this.number = testNumber;
     }
 }
