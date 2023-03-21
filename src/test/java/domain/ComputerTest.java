@@ -2,6 +2,7 @@ package domain;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
@@ -29,6 +30,21 @@ public class ComputerTest {
         assertThat(computer.getnumber().stream()
             .filter(item -> item>= MIN_VALUE || item<=MAX_VALUE)
             .count()).isEqualTo(EXPECTED_NUMBER_SIZE);
+    }
+
+    @Test
+    @DisplayName("각자리 수를 비교하여 HintList를 반환한다.")
+    void ComputerTest2() {
+        //given
+        Computer computer = new Computer();
+        Number number = new Number(Arrays.asList(1,2,3));
+        ArrayList<Hint> hintlist = new ArrayList<>(Arrays.asList(Hint.STRIKE,Hint.BALL,Hint.BALL));
+
+        //when
+        computer.setnumber(number);
+
+        //then
+        assertThat(computer.getHint(Arrays.asList(1,3,2))).isEqualTo(hintlist);
     }
 
 
