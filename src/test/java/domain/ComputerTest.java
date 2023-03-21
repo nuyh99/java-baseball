@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import view.Outputview;
 
 @DisplayName("Computer는")
 public class ComputerTest {

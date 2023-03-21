@@ -1,2 +1,8 @@
-package service;public class BaseballService {
+package Service;
+
+public class BaseballService {
+    public BaseballService(){
+
+    }
+
 }

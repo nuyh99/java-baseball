@@ -11,8 +11,13 @@ public enum Hint {
 
     private final String inKorean;
 
+
     Hint(String inKorean) {
         this.inKorean = inKorean;
+    }
+
+    public String getInKorean(){
+        return inKorean;
     }
 
 }
