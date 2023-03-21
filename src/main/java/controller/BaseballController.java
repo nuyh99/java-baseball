@@ -10,11 +10,17 @@ import java.util.stream.Stream;
 import view.InputView;
 
 public class BaseballController {
+    private User user;
+    private Computer computer;
     public void run() {
-        User user;
-        Computer computer = new Computer();
+
+
 
         user = provideUserNumber(InputView.readUserNumber());
+    }
+
+    private void gameset(){
+        computer.createNumber();
     }
 
     private User provideUserNumber(String input) {
