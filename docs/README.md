@@ -1,10 +1,10 @@
-Application
+# Application
 : 숫자 야구게임 구현
 -> 게임을 새로 시작할 때마다 새로운 랜덤숫자가 필요하다
 -> 새로운 인스턴스 생성
 
 
-Baseball
+# Baseball
 
 : 게임 시작 문구 출력 및 볼, 스트라이크 정보 출력
 
