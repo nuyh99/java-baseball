@@ -30,4 +30,4 @@
 : 랜덤 숫자 생성 기능
 
 # 정리할 것들
-AssertThat, 람다, 오류 던지기, 테스트 케이스, System.exit(),IOException,클래스 나누기, 이게 왜 돼? 
+AssertThat, 람다, 오류 던지기, 테스트 케이스, System.exit(),IOException,클래스 나누기, 이게 왜 돼? ,nullPointerException
